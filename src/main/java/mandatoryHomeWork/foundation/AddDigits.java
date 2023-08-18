@@ -17,7 +17,6 @@ public class AddDigits {
 	*11 --> 1 + 1 --> 2 
 	*Since 2 has only one digit, return it.
 	*
-	*
 	*Example 2:
 	*Input: num = 0
 	*Output: 0
