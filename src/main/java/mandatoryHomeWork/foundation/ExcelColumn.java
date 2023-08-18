@@ -1,5 +1,5 @@
 package mandatoryHomeWork.foundation;
 
-public class test {
+public class ExcelColumn {
 
 }
