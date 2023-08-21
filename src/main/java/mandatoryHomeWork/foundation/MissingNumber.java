@@ -31,13 +31,22 @@ public class MissingNumber {
 		int output = findMissingNumber(nums,len);
 		Assert.assertEquals(3, output);
 	}
+	
+	@Test
+	public void test3() {
+		int[] nums = {9,6,4,2,3,5,7,0,1};
+		int len = nums.length;
+		int output = findMissingNumber(nums,len);
+		Assert.assertEquals(8, output);
+	}
+	
 public int findMissingNumber(int[] nums, int len) {
 		int[] newNums = new int[len+1];
 		for(int a : nums) {
 			newNums[a]++;
 		}
 		
-		for(int i=0;i<nums.length;i++) {
+		for(int i=0;i<newNums.length;i++) {
 			if(newNums[i]==0) return i;
 		}
 		return 0;

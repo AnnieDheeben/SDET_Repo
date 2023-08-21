@@ -20,6 +20,8 @@ public class AddDigits {
 	*Example 2:
 	*Input: num = 0
 	*Output: 0
+	*
+	*time complexity - O[N]
 	 */
 	@Test
 	public void test1() {
@@ -46,20 +48,20 @@ public class AddDigits {
 	
 
 	public int addDigits(int num) {
-		int sinDigit = 0;
+		int sinDigit = 0; //0[1]
 		if(num==0) {
-			return 0;
+			return 0;   //0[1]
 		}
 		
-		if(num<9) {
+		if(num<9) {   //0[1]
 			return 1;
 		}
 		else {
-			while(num>9) {
-				num = (num/10) + (num%10);		
+			while(num>9) { //0[N]
+				num = (num/10) + (num%10);		//0[1]
 			}		
 		}
 		
-		return num;
+		return num; //0[1]
 	}
 }

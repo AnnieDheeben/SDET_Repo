@@ -17,22 +17,22 @@ public class Anagram {
 
 	public boolean findValidAnagram(String s, String t) {
 		
-		int count =0;
-		int sLen = s.length();
-		int tLen = t.length();
-		int[] n = new int[26];
-		if(sLen!=tLen) return false;
-		for(int i=0;i<sLen;i++) {
-			n[s.charAt(i)-'a']++;
+		int count =0; //O(1)
+		int sLen = s.length(); //O(1)
+		int tLen = t.length(); //O(1)
+		int[] n = new int[26]; //0(1)
+		if(sLen!=tLen) return false; //O(1)
+		for(int i=0;i<sLen;i++) {  //O(N)
+			n[s.charAt(i)-'a']++; //O(1)
 		}
-		for(int j=0;j<tLen;j++) {
-			n[t.charAt(j)-'a']--;
-		}
-		
-		for(int k=0;k<n.length;k++) {
-			if(n[k]!=0) return false;
+		for(int j=0;j<tLen;j++) {  //O(N)
+			n[t.charAt(j)-'a']--;  //O(1)
 		}
 		
-		return true;
+		for(int k=0;k<n.length;k++) { //O(N)
+			if(n[k]!=0) return false; //O(1)
+		}
+		
+		return true; //O(1)
 	}
 }

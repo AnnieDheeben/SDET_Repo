@@ -49,14 +49,14 @@ public class ArrangingCoins {
 	
 	public int findCompletedRows(int n) {
 		//n -5
-		int row = 1;
-			for(int i=row;i<n;i++) { //i=3;2<2; 
-				if(n> row) //5>2
-				n=n-row; //n =4-2 ; n= 2
-				row++; //3
+		int row = 1;  //O(1)
+			for(int i=row;i<n;i++) { //i=3;2<2; //O(N)
+				if(n> row) //5>2 O(1)
+				n=n-row; //n =4-2 ; n= 2 O(1)
+				row++; //3 O(1)
 				
 			}
-		return n;
+		return n; //O(1)
 		
 		
 	}
