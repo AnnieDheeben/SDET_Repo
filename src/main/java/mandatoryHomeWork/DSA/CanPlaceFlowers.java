@@ -59,6 +59,7 @@ public class CanPlaceFlowers {
 		return false;
 	}
 	
+	//logic to handle if the first index or the last index holds 0 value
 	public boolean canPlanFlowers(int[] arr, int n) {
 		
 		int count = 0;
