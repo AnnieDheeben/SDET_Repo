@@ -1,4 +1,4 @@
-package mandatoryHomeWork.DSA;
+package mandatoryHomeWork.DSA.week4day1;
 /*
  * Problem statement understandable - yes
  * dataset - yes
