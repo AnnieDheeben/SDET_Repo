@@ -1,4 +1,4 @@
-package mandatoryHomeWork.DSA.week4day1;
+package mandatoryHomeWork.DSA;
 /*
  * Problem statement understandable - yes
  * dataset - yes
@@ -19,7 +19,7 @@ Psuedocode :
 import org.junit.Test;
 import org.testng.Assert;
 
-public class CanPlaceFlowers {
+public class week4day1 {
 	
 	@Test
 	public void test1() {
