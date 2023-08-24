@@ -8,15 +8,19 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class Week1_Day1 {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 		
 		//System.setProperty("webdriver.chrome.driver", "./src/main/resources/chromedriver.exe");
-		ChromeDriver driver = new ChromeDriver();
+		//ChromeDriver driver = new ChromeDriver();
+		ChromeOptions options = new ChromeOptions();
+		options.addArguments("--disable-notifications");
+		ChromeDriver driver = new ChromeDriver(options);
 		driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS);
 		driver.get("https://login.salesforce.com");
 		driver.manage().window().maximize();
@@ -34,6 +38,8 @@ public class Week1_Day1 {
 		btnNew.click();
 		driver.findElement(By.xpath("//input[@name=\"Name\"]")).sendKeys("Annie");
 		driver.findElement(By.xpath("//button[text()='Save']")).click();
+		Thread.sleep(1000);
+		driver.close();
 
 	}
 
