@@ -12,6 +12,8 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import io.opentelemetry.exporter.logging.SystemOutLogRecordExporter;
+
 public class Week1_Day1 {
 
 	public static void main(String[] args) throws InterruptedException {
@@ -36,9 +38,15 @@ public class Week1_Day1 {
 		//accounts.click();
 		WebElement btnNew = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[contains(text(),\"New\")]")));
 		btnNew.click();
-		driver.findElement(By.xpath("//input[@name=\"Name\"]")).sendKeys("Annie");
+		driver.findElement(By.xpath("//input[@name='Name']")).sendKeys("Annie");
 		driver.findElement(By.xpath("//button[text()='Save']")).click();
 		Thread.sleep(1000);
+		WebElement accountName = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[contains(@Class,'outputNameWithHierarchyIcon ')]/lightning-formatted-text")));
+		
+		if(accountName.getText().equals("Annie")) {
+			System.out.println("Test case passed");
+		}
+	
 		driver.close();
 
 	}
