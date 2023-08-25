@@ -26,7 +26,7 @@ Psuedocode :
 3. For each iteration, Do an entry check whether the current index value of s is greater than 0 or not
 4. if true, for each index of s, iterate through all the index of g
 5. check whether s[i]>=g[j]
-6. if the above step returns true, increment the count by1
+6. if the above step returns true, set both s[i] and g[j] to 0 and increment the count by1
 7. return the counter value
  */
 public class week4day5 {
