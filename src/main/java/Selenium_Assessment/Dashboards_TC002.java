@@ -50,7 +50,8 @@ public class Dashboards_TC002 {
 		
 		//Search
 		String name = "geetha";
-		driver.findElement(By.xpath("(//a[@title='"+name+"']/ancestor::span/../../following-sibling::td/lightning-primitive-cell-factory/span/following::button)[1]")).click();
+		//driver.findElement(By.xpath("(//a[@title='"+name+"']/ancestor::span/../../following-sibling::td/lightning-primitive-cell-factory/span/following::button)[1]")).click();
+		driver.findElement(By.xpath("//a[@title='" +name+"']/ancestor::th/following-sibling::td//button")).click();
 		driver.findElement(By.xpath("//span[text()='Edit']")).click();
 		wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(By.xpath("//iframe[@title='dashboard']")));
 		driver.findElement(By.xpath("//button[@title='Edit Dashboard Properties']")).click();
