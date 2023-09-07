@@ -50,10 +50,10 @@ public class MaximumWords {
 	}
 	
 	public int findMaxWords(String[] input) {
-		int[] arr = new int[input.length];
+		int[] arr = new int[input.length]; //O[N]
 		for(int i=0;i<input.length;i++) {
 			int count=0;
-			String[] wordsArr = input[i].split(" ");
+			String[] wordsArr = input[i].split(" "); //O[1]
 				count = count + wordsArr.length;
 				arr[i] = count;
 			}
@@ -61,4 +61,6 @@ public class MaximumWords {
 		return arr[arr.length-1];
 		
 	}
+	
+	//Time complexity - O[N]
 }
