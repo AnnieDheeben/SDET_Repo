@@ -59,7 +59,7 @@ public class week7Day3_2 {
 	private String reverseString(String word) {
 		char[] sArr = new char[word.length()];
 		int index = 0;
-		for(int i=sArr.length-1;i>=0;i--) {
+		for(int i=sArr.length-1;i>=0;i--) {//O[N]
 			sArr[index]=word.charAt(i);
 			index++;
 		}
