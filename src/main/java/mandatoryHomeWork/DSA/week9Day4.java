@@ -1,6 +1,7 @@
 package mandatoryHomeWork.DSA;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -25,7 +26,7 @@ The substring with start index = 0 is "ab", which is an anagram of "ab".
 The substring with start index = 1 is "ba", which is an anagram of "ab".
 The substring with start index = 2 is "ab", which is an anagram of "ab".
 
-Psuedocode: 
+Psuedocode(findStringAnagram):
 1. Get the input s and p
 2. declare a variable called 'k'(window size) and assign the length of p to it
 3. declare an integer array with size 26 and store the occurrence of each character based on their ascii value
@@ -35,6 +36,25 @@ Psuedocode:
 6. for each iteration, check the character occurrence of current window element and p's character occurrence are same
 7. if it same, return the pointer value in the output list
 8. return the final output list
+
+Psuedocode - better approach (findStringAnagram1):
+1. Get the input string s and p
+2. declare an integer array 'cArr' with size 26 to track the character occurrence of p string
+3. declare one more integer array  'sArr' with the same size 26 to keep track the character occurrence of s string
+4. start a while loop and iterate till the end of p string to get the character occurrence and store it in cArr based on ascii value
+5. start an another while loop that iterate till the end of s string
+	a. get the current character of each iteration
+	b. add it to the sArr based on ascii value
+	c. check whether the current pointer reaches the length of the string p
+	d. if the above statement is true, compare the two arrays(cArr & sArr)
+	e. if both are same, 
+		1.add the starting index of the substring(s) to the output list
+	 	2.remove the character at the starting index of the substring
+	 	3. add the current pointer+1 character to form the new substring
+	f. if both are not same, check for the next window
+	g. continue the above steps till all the windows are covered
+6. return the output list if it holds any value
+7. return an empty list if the output list does not hold any value
  */
 public class week9Day4 {
 
@@ -45,7 +65,7 @@ public class week9Day4 {
 		List<Integer> output = new ArrayList<Integer>();
 		output.add(0);
 		output.add(6);
-		List<Integer>actOutput = findStringAnagram(s,p);
+		List<Integer>actOutput = findStringAnagram1(s,p);
 		Assert.assertEquals(output, actOutput);
 	}
 	
@@ -102,4 +122,36 @@ public class week9Day4 {
 		
 		return flag;
 	}
+	
+	private List<Integer> findStringAnagram1(String s, String p) {
+		int pointer = 0;
+		int[] cArr = new int[26];
+		int start = 0;
+		for(int i=0;i<p.length();i++) {
+			char c = p.charAt(i);
+			cArr[c-'a']++;
+		}
+		int[] sArr = new int[26];
+		List<Integer> output = new ArrayList<Integer>();
+		while(pointer<s.length()) {
+			char c = s.charAt(pointer);
+			sArr[c-'a']++;
+			if(pointer>=p.length()-1) {
+				if(Arrays.equals(cArr, sArr)) {
+					output.add(pointer-p.length()+1);
+				}
+				char c1 = s.charAt(pointer-p.length()+1);
+				sArr[c1-'a']--;	
+			}
+			pointer++;
+		}
+		
+		if(output.isEmpty()) {
+			return new ArrayList<Integer>();
+		}
+		else {
+			return output;
+		}
+	}
 }
+	
