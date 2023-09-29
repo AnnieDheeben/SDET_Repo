@@ -32,6 +32,14 @@ public class YubiCredAvenueQuestion {
 		Arrays.sort(actOutput);
 		Assert.assertArrayEquals(output, actOutput);
 	}
+	@Test
+	public void test2() {
+		int[] input = {-11,-12,-13,3,5,8,1,2,0,6,4};
+		int[] output = {-13,-12,8};
+		int[] actOutput = findMaxProdNumbers(input);
+		Arrays.sort(actOutput);
+		Assert.assertArrayEquals(output, actOutput);
+	}
 
 	private int[] findMaxProdNumbers(int[] input) {
 		int n = input.length;
