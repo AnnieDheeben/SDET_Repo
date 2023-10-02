@@ -27,7 +27,7 @@ public class highetSum_2Pointers {
 		int[] input = {1,5,2,3,7,1};
 		int k = 3;
 		int expectedSum = 12;
-		int actMaxSum = slidingWindow(input,k);
+		int actMaxSum = twoPointers(input,k);
 		Assert.assertEquals(expectedSum, actMaxSum);
 	}
 
@@ -80,5 +80,22 @@ public class highetSum_2Pointers {
         }
         return Math.max(currentSum, max);
     }
+	
+	private int twoPointers(int[] nums, int k) {
+		
+		int currentSum=0;
+		int maxSum = Integer.MIN_VALUE;
+		int start= 0;
+		int end = 0;
+		while(end<k) {
+			currentSum = currentSum + nums[end++];
+		}
+		
+		while(end<nums.length) {
+			maxSum = Math.max(currentSum, maxSum);
+			currentSum += nums[end++] - nums[start++];
+		}
+		return maxSum;
+	}
 
 }
