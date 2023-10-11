@@ -16,10 +16,10 @@ import java.util.Map.Entry;
 public class week10Day5_1 {
 	@Test
 	public void test1() {
-		String s = "egg";
-		String t="add";
-		boolean expOutput = true;
-		boolean actOutput = isIsomorphic(s,t);
+		String s = "foo";
+		String t="bar";
+		boolean expOutput = false;
+		boolean actOutput = isIsomorphic_1(s,t);
 	}
 
 	private boolean isIsomorphic(String s, String t) {
@@ -52,6 +52,31 @@ public class week10Day5_1 {
 	    }
 
 	    return true; // If we haven't found any issues, the strings are isomorphic.
+	}
+	
+	private boolean isIsomorphic_1(String s, String t) {
+		Map<Character, Character> map = new HashMap<>();
+		boolean flag = true;
+		char[] sArr = s.toCharArray();
+		char[] tArr = t.toCharArray();
+		for(int i=0;i<s.length();i++) {
+			if(!map.containsKey(sArr[i])) {
+				if(!map.containsValue(tArr[i])) {
+					map.put(sArr[i], tArr[i]);
+				}
+				else {
+					flag = false;
+				}
+			}
+			else {
+				Character c = map.get(sArr[i]);
+				if(c!=tArr[i]) {
+					flag = true;
+				}
+				
+				}
+			}
+		return flag;	
 	}
 }
 
