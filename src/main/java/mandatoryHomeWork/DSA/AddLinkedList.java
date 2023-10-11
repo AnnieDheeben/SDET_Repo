@@ -13,6 +13,11 @@ public class AddLinkedList {
         }
         size++;
     }
+    
+       public ListNode add(int[] value){
+           for(int each : value) add(each);
+           return head;
+       }
 
 	public ListNode removeElements(int valToRemove) {
 		if(head == null) return null;
@@ -31,22 +36,57 @@ public class AddLinkedList {
 		}
 			return head;
 		}
-
-	public String print(ListNode head2) {
-		currentNode = head;
-		StringBuilder sb = new StringBuilder();
-		while(currentNode!=null) {
-			//System.out.println(currentNode.val+"->");
-			sb.append(currentNode.val).append("->");
-			currentNode = currentNode.next;
-		}
-			sb.append("null");
-		return sb.toString();
+	
+	public ListNode middleNode() {
+		ListNode currentNode = head;
+	    ListNode resNode = head;
+	    int currSize=0;
+	    int middle = 0;
+	    while(currentNode!=null){
+	            currentNode = currentNode.next;
+	            currSize++;
+	        }
+	    middle = size/2;
+	    for(int i=1;i<=middle;i++){
+	        resNode =resNode.next;
+	    }
+	    return resNode;
 		
+	}
+
+	public ListNode middleNode_way2() {
+		ListNode slow = head;
+		ListNode fast = head;
+		
+		while(fast!=null && fast.next!=null) {
+			slow = slow.next;
+			fast = fast.next.next;
+		}
+		return slow;	
+	}
+	
+	public static void printList(ListNode head) {
+		ListNode current = head;
+	        while (current != null) {
+	            System.out.print(current.val + " ");
+	            current = current.next;
+	        }
+	        System.out.println();
 	}
 
 	public int size() {
 		
 		return size;
+	}
+	
+	public void printFromNode(ListNode node) {
+	    ListNode current = node;
+	    
+	    while (current != null) {
+	        System.out.print(current.val + " -> ");
+	        current = current.next;
+	    }
+	    
+	    System.out.println("null");
 	}
 }

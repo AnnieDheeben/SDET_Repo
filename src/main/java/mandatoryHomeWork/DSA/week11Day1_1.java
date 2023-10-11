@@ -26,9 +26,9 @@ public class week11Day1_1 {
 		for(int each : new int[] {1,2,6,3,4,5,6}) {
 			list1.add(each);
 		}
-		System.out.println(list1.print(list1.head)+"\nsize of the list : "+ list1.size());
+		list1.printList(list1.head);
 		int valToRemove = 6;
 		list1.removeElements(valToRemove);
-		System.out.println(list1.print(list1.head)+"\nsize of the list after removal : "+ list1.size());
+		list1.printList(list1.head);
 	}
 }
