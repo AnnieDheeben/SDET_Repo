@@ -1,5 +1,7 @@
 package mandatoryHomeWork.DSA;
 
+import java.util.Queue;
+
 import org.junit.Test;
 
 public class LinkedList {
