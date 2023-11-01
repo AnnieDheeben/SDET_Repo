@@ -21,22 +21,19 @@ public void test2() {
 }
 
 private boolean isLongPressedName(String name, String typed) {
-	StringBuilder sb = new StringBuilder();
-	Stack<Character> stack = new Stack<>();
-	for(int i=0;i<typed.length();i++) {
-		if(stack.isEmpty() || stack.peek()!=typed.charAt(i)) {
-			stack.push(typed.charAt(i));
+	int p1=0,p2=0;
+	while(p2<typed.length()) {
+		if(p1<name.length() && name.charAt(p1)==typed.charAt(p2)) {
+			p1++;
+			p2++;
 		}
-		
+		else if(p1!=0 && typed.charAt(p2)==name.charAt(p1-1)) {
+			p2++;
+		}
+		else {
+			return false;
+		}
 	}
-	
-	while(!stack.isEmpty()) {
-		char c = stack.pop();
-		sb = sb.append(c);
-	}
-	
-	String reverse = sb.toString();
-	
-	return reverse.equals(name);
+	return p1==name.length();
 }
 }
